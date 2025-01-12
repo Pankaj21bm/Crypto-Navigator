@@ -96,7 +96,7 @@ const CryptoDashBoard = ({ crypto }) => {
         <div className="min-h-screen bg-gray-100">
             <Navbar />
             <div className='text-md ml-2 mb-2 md:mb-0 md:ml-16 mt-4'>
-                CryptoCurrencies <i class="fa-solid fa-angles-right"></i><span className=' ml-2 font-semibold'>{getCryptoAbbreviation1(crypto)}</span>
+                CryptoCurrencies <i className="fa-solid fa-angles-right"></i><span className=' ml-2 font-semibold'>{getCryptoAbbreviation1(crypto)}</span>
             </div>
             <div className="grid grid-cols-12 ml-1 mr-1 lg:ml-8">
                 <div className="col-span-12 md:col-span-8 p-1 lg:p-6 lg:pt-4 ml-0">
