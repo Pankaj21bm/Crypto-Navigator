@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="bg-white px-4 py-3 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center md:ml-10">
-          <img src="/logo.svg" alt="Logo" className="h-6 mr-2" />
+          <img src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Logo" className="h-6 mr-2" />
         </div>
 
         <div className="md:hidden">
