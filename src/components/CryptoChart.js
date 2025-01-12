@@ -79,9 +79,7 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
             for (let i = 0; i < priceHistory.length; i++) {
                 if (i % interval === 0) {
                     const dates = new Date(priceHistory[i][0])
-                    console.log(dates);
                     const newDate = String(dates.getDate()) + " " + dates.toLocaleString('default', { month: 'short' });
-                    console.log(newDate)
                     labels.push(newDate);
                     prices.push(priceHistory[i][1]);
                 }

@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/Crypto-Navigator">
       <Routes>
         <Route path="/" element={<CryptoDashBoard crypto="bitcoin" />} />
         <Route path="/bitcoin" element={<CryptoDashBoard crypto="bitcoin" />} />

@@ -1,9 +1,7 @@
 import React from 'react';
 
 const CryptoMarketData = ({ CryptoData, crypto, marketCapPercentage }) => {
-    console.log(marketCapPercentage)
     const symbol = CryptoData.symbol;
-    console.log(symbol)
     function getCryptoAbbreviation(cryptoName) {
         return cryptoName.substring(0, 3).toUpperCase();
     }
