@@ -44,11 +44,11 @@ const CryptoDashBoard = ({ crypto }) => {
     useEffect(() => {
         const fetchCryptoData = async (range) => {
             try {
-                const marketresponse = await fetch('/api/v3/global');
+                const marketresponse = await fetch('https://api.coingecko.com/api/v3/global');
                 const marketData = await marketresponse.json();
-                const currentResponse = await fetch(`/api/v3/coins/${crypto}`);
+                const currentResponse = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto}`);
                 const currentData = await currentResponse.json();
-                const chartResponse = await fetch(`/api/v3/coins/${crypto}/market_chart?vs_currency=usd&days=${range}`);
+                const chartResponse = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=usd&days=${range}`);
                 const chartData = await chartResponse.json();
 
                 setMarketCapPercentage(marketData);
