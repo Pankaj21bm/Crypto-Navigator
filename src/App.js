@@ -1,12 +1,11 @@
 import React from "react";
 import CryptoDashBoard from "./components/CryptoDashBoard.js";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const App = () => {
   return (
-    <Router basename="/Crypto-Navigator">
+    <Router>
       <Routes>
         <Route path="/" element={<CryptoDashBoard crypto="bitcoin" />} />
         <Route path="/bitcoin" element={<CryptoDashBoard crypto="bitcoin" />} />
