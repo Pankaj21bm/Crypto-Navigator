@@ -32,9 +32,9 @@ const CryptoHeader = ({ CryptoData, crypto }) => {
           >
             {CryptoData.market_data.price_change_percentage_24h > 0 ? (
 
-              <img src={"/up.svg"} className='h-3 m-1' alt="" />
+              <img src={`${process.env.PUBLIC_URL}/up.svg`} className='h-3 m-1' alt="" />
             ) : (
-              <img src={"/down.svg"} className='h-3 m-1' alt="" />
+              <img src={`${process.env.PUBLIC_URL}/down.svg`} className='h-3 m-1' alt="" />
             )}
             <span
               className={`${CryptoData.market_data.price_change_percentage_24h > 0
