@@ -52,9 +52,7 @@ const CryptoDashBoard = ({ crypto }) => {
                 const chartData = await chartResponse.json();
 
                 setMarketCapPercentage(marketData);
-                console.log(marketData)
                 setCryptoData(currentData);
-                console.log(currentData)
                 setPriceHistory(chartData.prices);
 
                 const rangePrices = chartData.prices.map(([timestamp, price]) => price);

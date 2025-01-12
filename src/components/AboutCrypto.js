@@ -3,7 +3,6 @@ import React from 'react';
 const CryptoInfo = ({ cryptoName }) => {
 
     function getCryptoAbbreviation1(cyrpto) {
-        console.log(cryptoName)
         return cyrpto?.substring(0, 1).toUpperCase() + cyrpto?.substring(1);
     }
 
