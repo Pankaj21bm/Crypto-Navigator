@@ -18,7 +18,7 @@ const GetStartedCard = () => {
             {/* Illustration */}
             <div className="flex justify-center mb-7 mt-8">
                 <img
-                    src="/pic.svg"
+                    src={`${process.env.PUBLIC_URL}/pic.svg`}
                     alt="KoinX Illustration"
                     className="w-44 h-auto"
                 />
