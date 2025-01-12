@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Crypto-Navigator/static/css/main.55934c60.css",
-    "main.js": "/Crypto-Navigator/static/js/main.e6dd2943.js",
+    "main.js": "/Crypto-Navigator/static/js/main.bc0c816b.js",
     "static/media/fa-solid-900.ttf": "/Crypto-Navigator/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/Crypto-Navigator/static/media/fa-brands-400.1815e00441357e01619e.ttf",
     "static/media/fa-solid-900.woff2": "/Crypto-Navigator/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
@@ -12,10 +12,10 @@
     "static/media/fa-v4compatibility.woff2": "/Crypto-Navigator/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/Crypto-Navigator/index.html",
     "main.55934c60.css.map": "/Crypto-Navigator/static/css/main.55934c60.css.map",
-    "main.e6dd2943.js.map": "/Crypto-Navigator/static/js/main.e6dd2943.js.map"
+    "main.bc0c816b.js.map": "/Crypto-Navigator/static/js/main.bc0c816b.js.map"
   },
   "entrypoints": [
     "static/css/main.55934c60.css",
-    "static/js/main.e6dd2943.js"
+    "static/js/main.bc0c816b.js"
   ]
 }
