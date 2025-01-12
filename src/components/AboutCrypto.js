@@ -17,7 +17,7 @@ const CryptoInfo = ({ cryptoName }) => {
                 </div>
                 <div className='flex flex-col border-b-2 pb-4 mt-4'>
                     <p className="text-xl font-bold mb-2">Lorem ipsum dolor sit amet</p>
-                    <p className="text-gray-600 text-lg font-medium flex flex-col gap-5">
+                    <div className="text-gray-600 text-lg font-medium flex flex-col gap-5">
                         <p>Lorem ipsum dolor sit amet consectetur. Aliquam placerat sit lobortis tristique pharetra. Diam id et lectus
                             urna et tellus aliquam dictum at. Viverra diam suspendisse enim facilisi diam ut sed. Quam scelerisque
                             fermentum sapien morbi sodales odio sed rhoncus. Ultricies urna volutpat pendisse enim facilisi diam ut sed.
@@ -35,7 +35,7 @@ const CryptoInfo = ({ cryptoName }) => {
                             semper scelerisque porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia congue ipsum fames
                             amet dui. Purus ultrices tincidunt volutpat in eget. Ullamcorper dui
                         </p>
-                    </p>
+                    </div>
                 </div>
             </section>
 

@@ -53,7 +53,7 @@ const CryptoMarketData = ({ CryptoData, crypto, marketCapPercentage }) => {
                 <div className="flex justify-between items-center h-12">
                     <p className="text-sm md:text-md text-gray-500">Market Cap Dominance</p>
                     <p className="font-bold text-sm md:text-md text-gray-600 pr-3">
-                        {marketCapPercentage.data.market_cap_percentage[symbol].toFixed(2)}%
+                        {marketCapPercentage.data.market_cap_percentage[symbol]?.toFixed(2)}%
                     </p>
                 </div>
                 <div className="flex justify-between items-center h-12 sm:border-b-2">
