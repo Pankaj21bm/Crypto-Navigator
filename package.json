@@ -1,6 +1,6 @@
 {
+  "homepage":"https://pankaj21bm.github.io/Crypto-Navigator",
   "name": "crypto-navigator",
-  "homepage":"https://pankaj21bm.github.io/Crypto-Navigator"
   "version": "0.1.0",
   "private": true,
   "dependencies": {
