@@ -84,7 +84,7 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
                 }
             }
 
-            const minYValue = Math.min(...prices);
+            const minYValue = Math.min(...prices); 
 
             if (chartRef.current._chartInstance) {
                 chartRef.current._chartInstance.destroy();
