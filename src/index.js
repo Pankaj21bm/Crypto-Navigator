@@ -5,10 +5,9 @@ import App from './App';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { HashRouter } from 'react-router-dom';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <HashRouter>
+  // <HashRouter>
     <App />
-  </HashRouter>
+  // </HashRouter>
 );

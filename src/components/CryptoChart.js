@@ -23,7 +23,7 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
-    zoomPlugin // Register the zoom plugin
+    zoomPlugin
 );
 
 const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, CryptoData }) => {
@@ -36,7 +36,6 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
         if (chartRef.current && priceHistory?.length > 0) {
             const ctx = chartRef.current.getContext("2d");
 
-            // Adjust the granularity of the labels and prices
             let labels = [];
             let prices = [];
             let unit = "day";
@@ -85,15 +84,12 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
                 }
             }
 
-            // Find the minimum value in the data
             const minYValue = Math.min(...prices);
 
-            // Destroy the existing chart instance (if any)
             if (chartRef.current._chartInstance) {
                 chartRef.current._chartInstance.destroy();
             }
 
-            // Create a new chart instance
             chartRef.current._chartInstance = new Chart(ctx, {
                 type: "line",
                 data: {
@@ -106,7 +102,7 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
                             backgroundColor: "rgb(0, 82, 254,0.1)",
                             fill: true,
                             tension: 0.1,
-                            pointRadius: 0, // Removes the circles (points) from the line
+                            pointRadius: 0,
                         },
                     ],
                 },
@@ -119,12 +115,12 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
                         zoom: {
                             pan: {
                                 enabled: true,
-                                mode: 'xy', // Allow pan in both axes
-                                threshold: 10, // How far you need to move to trigger pan
+                                mode: 'xy',
+                                threshold: 10,
                             },
                             wheel: {
                                 enabled: true,
-                                mode: 'xy', // Allow zoom in both axes
+                                mode: 'xy',
                                 speed: 0.1,
                                 sensitivity: 3,
                                 threshold: 2,
@@ -138,7 +134,7 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
                                 maxTicksLimit: 10,
                             },
                             grid: {
-                                display: false, // Disable vertical grid lines
+                                display: false,
                             },
                         },
                         y: {
@@ -149,7 +145,6 @@ const CryptoChart = ({ priceHistory, timeRange, handleTimeRangeChange, crypto, C
                 },
             });
 
-            // Handle resizing the chart when the window is resized
             const resizeChart = () => {
                 if (chartRef.current._chartInstance) {
                     chartRef.current._chartInstance.resize();

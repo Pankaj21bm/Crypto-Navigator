@@ -8,10 +8,18 @@ const TrendingCoins = ({ setTrendingData }) => {
     useEffect(() => {
         const fetchTrendingCoins = async () => {
             try {
-                const response = await fetch("https://api.coingecko.com/api/v3/search/trending");
-                const responseData = await response.json();
-                setCurrentTrendingData(responseData);
-                setTrendingData(responseData);
+                const options = {
+                    method: 'GET',
+                    headers: { accept: 'application/json', 'x-cg-demo-api-key': `${ process.env.REACT_APP_X_CG_DEMO_API_KEY }` }
+                };
+                fetch('https://api.coingecko.com/api/v3/search/trending', options)
+                    .then(res => res.json())
+                    .then(responseData => {
+                        setCurrentTrendingData(responseData);
+                        setTrendingData(responseData);
+                        console.log("responseData: ", responseData)
+                    })
+                    .catch(err => console.error(err));
             } catch (error) {
                 console.error("Error fetching trending coins:", error);
             }
@@ -54,7 +62,7 @@ const TrendingCoins = ({ setTrendingData }) => {
                         {currentTrending?.coins.map((coin, index) => (
                             <div
                                 key={index}
-                                className="border flex flex-col items-start rounded-lg p-5 min-w-[60%] md:min-w-[20%]"
+                                className="border flex flex-col items-start rounded-lg p-5 min-w-[60%] md:min-w-[40%] lg:min-w-[20%]"
                             >
                                 <div className="flex gap-0 items-center mb-2">
 
@@ -131,7 +139,7 @@ const TrendingCoins = ({ setTrendingData }) => {
                         {currentTrending?.coins.map((coin, index) => (
                             <div
                                 key={index}
-                                className="border flex flex-col items-start rounded-lg p-5 min-w-[60%] md:min-w-[20%]"
+                                className="border flex flex-col items-start rounded-lg p-5 min-w-[60%]  md:min-w-[40%] lg:min-w-[20%]"
                             >
                                 <div className="flex gap-2 items-center mb-2">
 
