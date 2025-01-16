@@ -1,11 +1,12 @@
 import React from "react";
 import CryptoDashBoard from "./components/CryptoDashBoard.js";
 import { HashRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
     <Routes>
       <Route path="/" element={<CryptoDashBoard crypto="bitcoin" />} />
       <Route path="/bitcoin" element={<CryptoDashBoard crypto="bitcoin" />} />
@@ -16,7 +17,7 @@ const App = () => {
       <Route path="/litecoin" element={<CryptoDashBoard crypto="litecoin" />} />
       <Route path="/dogecoin" element={<CryptoDashBoard crypto="dogecoin" />} /> 
     </Routes>
-     </BrowserRouter>
+    </BrowserRouter >
   );
 };
 
