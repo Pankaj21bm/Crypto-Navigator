@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white px-4 py-3 shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between relative">
         <div className="flex items-center md:ml-10">
           <img src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Logo" className="h-6 mr-2" />
         </div>
@@ -41,11 +41,11 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`md:flex md:items-center md:justify-end ${isOpen ? "block" : "hidden"
-            }`}
+          className={`md:flex md:items-start md:justify-end ${isOpen ? "block" : "hidden"
+            } ${isOpen ? 'absolute -top-2 right-0' : ""} md:absolute md:-top-2 md:right-0`}
           onClick={toggleMenu}
         >
-          <div className="md:flex md:items-center md:justify-end md:gap-10">
+          <div className="md:flex md:items-center md:justify-end md:gap-4 lg:gap-10">
             <a
               href="#crypto-taxes"
               className="text-lg font-bold text-black hover:text-blue-600 block md:inline-block p-0 md:px-2 md:py-1"

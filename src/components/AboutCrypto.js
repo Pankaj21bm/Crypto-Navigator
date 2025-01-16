@@ -7,7 +7,7 @@ const CryptoInfo = ({ cryptoName }) => {
     }
 
     return (
-        <div className="container mx-auto p-5 pt-3 bg-white mt-4">
+        <div className=" p-5 pt-3 bg-white mt-4">
             <section className="mb-4">
                 <h1 className="text-2xl font-bold">About {getCryptoAbbreviation1(cryptoName)}</h1>
                 <div className='flex flex-col border-b-2 pb-4 mt-4'>
@@ -41,19 +41,19 @@ const CryptoInfo = ({ cryptoName }) => {
 
             <section className="mt-1 border-b-2">
                 <h2 className="text-2xl font-semibold mb-4">Already Holding {getCryptoAbbreviation1(cryptoName)}?</h2>
-                <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-8 mb-4">
-                    <div className="flex flex-row gap-8 items-start md:items-center card bg-[linear-gradient(to_bottom_right,#77eea4,#105ead)] w-[100%] md:w-[50%] text-white p-3 rounded-lg shadow-lg">
+                <div className="flex flex-col lg:flex-row justify-between gap-2 lg:gap-2 mb-4">
+                    <div className="flex max-w-320px:flex-col gap-3  lg:gap-5 md:gap-8 items-center card bg-[linear-gradient(to_bottom_right,#77eea4,#105ead)] w-[100%] lg:w-[50%] text-white p-3 rounded-lg shadow-lg">
                         <img src="https://s3-alpha-sig.figma.com/img/4a59/7cf5/e39cee97d83ba894aa0c105133924b9b?Expires=1737331200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BIpcdewbeHvpF0MrAHY9Lvoj0pca~n77kDxgd55mI~LL6DhUVkQkiHr5pBEMM7AtTgJ3r50AD5rDtCXdoDGT56v03G1oM0r4wyjQQsqlRn7plrafv4xMISOsNszaNThUXSJrUlWt~XLXr7r86YIkB5PwI3lVDyklbGy~48E2qc86bk25uWBfyp2yk-BGZORYlvmG4DNJRnQ8qtcIJ8nj1kxPzIKT4O676Cdkfd09WRDGFQLhBevRjdipHN7UW6y1LZz651u9k7qWHX-nCLWNBhpwzx4i0aH4FddzREaKCwnmK~DAkruz1qAfUnsFZLCClIobUtEFP58DdJkB8Iyc1A__" alt="Calculate Profits" className=" rounded-lg w-36 h-36 object-cover object-right" />
-                        <div>
-                            <h3 className="text-2xl font-semibold">Calculate your Profits</h3>
-                            <button className="mt-4 bg-white font-semibold text-black py-2 px-4 rounded-lg">Check Now →</button>
+                        <div className='flex flex-col items-center sm:items-start'>
+                            <h3 className="text-xl text-center md:text-2xl font-semibold">Calculate your Profits</h3>
+                            <button className="mt-4 bg-white font-semibold text-black py-2 px-4 rounded-lg">Check Now→</button>
                         </div>
                     </div>
-                    <div className="flex flex-row gap-8 items-center card bg-[linear-gradient(to_bottom_right,#ff9664,#f13c37)] w-[100%] md:w-[50%] text-white p-3 rounded-lg shadow-lg">
+                    <div className="flex max-w-320px:flex-col gap-3  lg:gap-5 md:gap-8 items-center card bg-[linear-gradient(to_bottom_right,#ff9664,#f13c37)] w-[100%] lg:w-[50%] text-white p-3 rounded-lg shadow-lg">
                         <img src="https://s3-alpha-sig.figma.com/img/b324/e6e3/5c577ca47c764bd8af01d840fe7ffccb?Expires=1737331200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=d4l6utWlIkrTQzqt77v9j0~gF~vbeJRrczq6KNeIyXwZT~GK~Lf~qi4wM95eBzMG3moI5HEb268uf2MKQuKUD6wweZBgLLHTk6QZsDSs8nG7Nz7CiR-h5Iw79zDhEU19rKCbLW~hJ1zjAjS0~-knfUlYgUq6TKJUUkaU0x3gNR0JFYjAUFYU5mGq~tfgaFpijbiNjl5z4AC4OllIoyuSrVGxTQu6~FX2-Fuzr8K3235R65bN7rlrzduhg6fIoYkkdy4zWD2~fnmekMZ5soQX0Vk~S3eDEs8YmPn5A6xFzi~MiO53Xe2K6bBVVtGA-eY-urXUeeYJHhrTlxAmvlSIyA__" alt="Calculate Tax" className=" rounded-lg w-36 h-36 object-cover object-right" />
-                        <div>
-                            <h3 className="text-2xl font-semibold">Calculate your tax liability</h3>
-                            <button className="mt-4 bg-white font-semibold text-black py-2 px-4 rounded-lg">Check Now →</button>
+                        <div className='flex flex-col items-center sm:items-start'>
+                            <h3 className="text-xl text-center md:text-2xl font-semibold">Calculate your tax liability</h3>
+                            <button className="mt-4 bg-white font-semibold text-black py-2 px-4 rounded-lg">Check Now→</button>
                         </div>
                     </div>
                 </div>
