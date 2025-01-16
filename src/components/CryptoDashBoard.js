@@ -76,7 +76,7 @@ const CryptoDashBoard = ({ crypto }) => {
         };
 
         fetchCryptoData(timeRange);
-    }, [timeRange]);
+    }, [timeRange,crypto]);
 
     const handleTimeRangeChange = (range) => {
         setTimeRange(range);
