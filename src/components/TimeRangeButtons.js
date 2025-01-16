@@ -40,7 +40,7 @@ const TimeRangeButtons = ({ handleTimeRangeChange }) => {
                 1Y
             </button>
             <button
-                onClick={() => handleTimeRangeChange("max")}
+                onClick={() => handleTimeRangeChange("365")}
                 className="btn-time-range text-gray-500 font-semibold text-xs py-0 px-2 rounded-xl hover:bg-gray-300 hover:text-blue-500 transition duration-200"
             >
                 ALL

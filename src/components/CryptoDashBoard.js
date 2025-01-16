@@ -14,12 +14,12 @@ import SideBar from './SideBar';
 
 const CryptoDashBoard = ({ crypto }) => {
     const [CryptoData, setCryptoData] = useState(null);
-    const [priceHistory, setPriceHistory] = useState([]);
+    const [priceHistory, setPriceHistory] = useState(null);
     const [timeRange, setTimeRange] = useState('7'); // Default to 7 days
     const [performanceData, setPerformanceData] = useState(null);
     const [marketCapPercentage, setMarketCapPercentage] = useState(null)
     const [trendingData, setTrendingData] = useState(null);
-    const [cryptoName, setCryptoName] = useState();
+    const [cryptoName, setCryptoName] = useState("");
 
     const getRangeName = () => {
         if (timeRange === '1') return ["Today's Low", "Today's High"];
@@ -44,45 +44,58 @@ const CryptoDashBoard = ({ crypto }) => {
     useEffect(() => {
         const fetchCryptoData = async (range) => {
             try {
-                const marketresponse = await fetch('https://api.coingecko.com/api/v3/global');
-                const marketData = await marketresponse.json();
-                const currentResponse = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto}`);
-                const currentData = await currentResponse.json();
-                const chartResponse = await fetch(`https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=usd&days=${range}`);
-                const chartData = await chartResponse.json();
+                const options = {
+                    method: 'GET',
+                    headers: { accept: 'application/json', 'x-cg-demo-api-key': `${process.env.REACT_APP_X_CG_DEMO_API_KEY}` }
+                };
 
-                setMarketCapPercentage(marketData);
-                setCryptoData(currentData);
-                setPriceHistory(chartData.prices);
-
-                const rangePrices = chartData.prices.map(([timestamp, price]) => price);
-                const rangeLow = Math.min(...rangePrices);
-                const rangeHigh = Math.max(...rangePrices);
-                const currentPrice = currentData.market_data.current_price.usd;
-
-                const yearLow = currentData.market_data.low_24h.usd || rangeLow;
-                const yearHigh = currentData.market_data.high_24h.usd || rangeHigh;
-
-                setPerformanceData({
-                    rangeLow,
-                    rangeHigh,
-                    currentPrice,
-                    yearLow,
-                    yearHigh,
-                });
+                fetch('https://api.coingecko.com/api/v3/global', options)
+                    .then(res => res.json())
+                    .then(marketData => { setMarketCapPercentage(marketData); })
+                    .catch(err => console.error(err));
+                fetch(`https://api.coingecko.com/api/v3/coins/${crypto}`, options)
+                    .then(res => res.json())
+                    .then(currentData => { setCryptoData(currentData); })
+                    .catch(err => console.error(err));
+                fetch(`https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=usd&days=${range}`, options)
+                    .then(res => res.json())
+                    .then(chartData => {
+                        setPriceHistory(chartData.prices);                    
+                    })
+                    .catch(err => console.error(err));
             } catch (error) {
                 console.error(`Error fetching ${crypto} data:`, error);
             }
         };
 
         fetchCryptoData(timeRange);
-    }, [timeRange]);
+    }, [timeRange, crypto]);
+
+    useEffect(() => {
+        if (CryptoData && priceHistory) {
+            const rangePrices = priceHistory.map(([timestamp, price]) => price);
+            const rangeLow = Math.min(...rangePrices);
+            const rangeHigh = Math.max(...rangePrices);
+            const currentPrice = CryptoData.market_data.current_price.usd;
+
+            const yearLow = CryptoData.market_data.atl.usd || rangeLow;
+            const yearHigh = CryptoData.market_data.ath.usd || rangeHigh;
+
+            setPerformanceData({
+                rangeLow,
+                rangeHigh,
+                currentPrice,
+                yearLow,
+                yearHigh,
+            });
+        }
+    }, [CryptoData, priceHistory]);
 
     const handleTimeRangeChange = (range) => {
         setTimeRange(range);
     };
 
-    if (!CryptoData || !performanceData) {
+    if (!CryptoData || !priceHistory || !performanceData || !marketCapPercentage) {
         return (
             <div className="flex items-center justify-center min-h-screen">
                 <p>Loading {crypto} data...</p>
@@ -93,7 +106,7 @@ const CryptoDashBoard = ({ crypto }) => {
     const { rangeLow, rangeHigh, currentPrice, yearLow, yearHigh } = performanceData;
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen max-w-[2500px] bg-gray-100 m-auto">
             <Navbar />
             <div className='text-md ml-2 mb-2 md:mb-0 md:ml-16 mt-4'>
                 CryptoCurrencies <i className="fa-solid fa-angles-right"></i><span className=' ml-2 font-semibold'>{getCryptoAbbreviation1(crypto)}</span>
